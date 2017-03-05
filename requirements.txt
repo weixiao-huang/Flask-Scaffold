@@ -10,4 +10,5 @@ Flask==0.12               # via flask-script
 itsdangerous==0.24        # via flask
 jinja2==2.9.5             # via flask
 markupsafe==0.23          # via jinja2
+pep8==1.7.0
 werkzeug==0.11.15         # via flask
