@@ -12,5 +12,10 @@ def lint():
     os.system('pep8 --show-source --show-pep8 app')
 
 
+@manager.command
+def compile_requirements():
+    # TODO: call from library
+    os.system('pip-compile')
+
 if __name__ == '__main__':
     manager.run()
