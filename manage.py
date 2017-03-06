@@ -1,5 +1,5 @@
 from flask_script import Manager
-from app import create_app
+from app import create_app, db
 import os
 
 app = create_app(os.getenv('FLASK_CONFIG', 'default'))
@@ -16,6 +16,17 @@ def lint():
 def compile_requirements():
     # TODO: call from library
     os.system('pip-compile')
+
+
+@manager.command
+def create_all():
+    db.create_all()
+
+
+@manager.command
+def drop_all():
+    db.drop_all()
+
 
 if __name__ == '__main__':
     manager.run()

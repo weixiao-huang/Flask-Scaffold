@@ -87,3 +87,8 @@ ENV/
 
 # Rope project settings
 .ropeproject
+
+# SQLite database file
+db/*
+!db/.gitkeep
+
