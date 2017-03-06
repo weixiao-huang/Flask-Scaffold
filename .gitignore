@@ -92,3 +92,6 @@ ENV/
 db/*
 !db/.gitkeep
 
+# config_local
+config_local.py
+
