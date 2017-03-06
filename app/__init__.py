@@ -2,7 +2,7 @@
 flask app
 """
 
-from app.config import configs
+from config import configs
 from flask import Flask
 
 
