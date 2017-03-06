@@ -3,6 +3,7 @@ flask config file
 """
 
 import os
+from modulefinder import importlib
 
 basedir = os.path.abspath(os.path.dirname(__file__))
 
@@ -43,3 +44,5 @@ configs = {
     'production': ProductionConfig,
     'default': DevelopmentConfig,
 }
+
+importlib.import_module('config_local')
