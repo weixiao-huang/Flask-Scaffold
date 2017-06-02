@@ -22,6 +22,8 @@ class Config(object):
     SENTENCES_DIR = os.path.join(basedir, 'img', 'sentences')
     RESOURCES_DIR = os.path.join(basedir, 'resources')
 
+    REDIS_URL = "redis://localhost:6379/0"
+
     @staticmethod
     def init_app(app):
         pass

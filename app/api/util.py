@@ -6,10 +6,9 @@ from random import random
 import uuid
 import time
 from flask import current_app as app
+from app import redis_store
 
 RESULT_REL_DIR = 'static'
-
-draw_num = 0
 
 
 def add_name_and_num(fn, name, num, genera, result_fn):
@@ -132,5 +131,7 @@ def get_result_url_by_name(name):
     select_file = selects[int(random() * 2)]
     result_fn = str(uuid.uuid1()) + '.png'
     print(time.strftime("%Y-%m-%d %X", time.localtime()), ': ', select_file)
-    return add_name_and_num(select_file, name, 12323, genera_name, '1.png'), \
+    draw_num = int(redis_store.get('num:totals'))
+    redis_store.incr('num:totals')
+    return add_name_and_num(select_file, name, draw_num, genera_name, result_fn), \
            os.path.join(RESULT_REL_DIR, 'genera', genera_file)
