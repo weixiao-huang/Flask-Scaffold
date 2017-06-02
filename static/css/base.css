@@ -19,44 +19,32 @@ body::after {
     height: 100%;
 }
 
-.outer-border {
-  border: 2px solid rgba(255, 255, 255, 0.6);
-  padding: 5%;
-}
-
-.inner-border {
-  border: 10px solid rgba(255, 255, 255, 0.8);
-  padding: 5%;
-}
-
-.wrap-inner {
-  background: rgba(255, 255, 255, 0.5);
+.container {
+  width: 90%;
 }
 
 .wrap-inner__input {
-  width: 100%;
+  width: 90%;
   text-align: center;
-  font-size: 3rem;
+  font-size: 4rem;
+  outline: none;
+  height: 10rem;
+  border: 2px solid #baafc6;
 }
 
-img {
-  width: 80%;
-  padding: 15% 0;
-}
-
-.wrap-index__header, .wrap-index__footer {
+.result-img {
   width: 100%;
 }
 
 input::-webkit-input-placeholder { /* WebKit browsers */
-  color: #2a849a;
+  color: #7667bb;
 }
 input:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
-  color:    #999;
+  color: #7667bb;
 }
 input::-moz-placeholder { /* Mozilla Firefox 19+ */
-  color:    #999;
+  color: #7667bb;
 }
 input:-ms-input-placeholder { /* Internet Explorer 10+ */
-  color:    #999;
+  color: #7667bb;
 }

@@ -1,26 +1,16 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <div class="outer-border">
-        <div class="inner-border">
-            <div class="wrap-inner">
-                <view class="wrap-index__header">
-                    <img class="wrap-index__header__img" src="{{ url_for("static", filename="img/header.png") }}" alt="">
-                </view>
-                <form class="form" action="/" method="post">
-                    <input
-                        id="input"
-                        name="name"
-                        class="wrap-inner__input"
-                        type="text"
-                        placeholder="输入你的名字"
-                        maxlength="10"
-                    >
-                </form>
-                <view class="wrap-index__footer">
-                    <img class="wrap-index__footer__img" src="{{ url_for("static", filename="img/footer.png") }}" alt="">
-                </view>
-            </div>
-        </div>
-    </div>
+    <view class="container__index">
+        <form class="form" action="/" method="post">
+            <input
+                id="input"
+                name="name"
+                class="wrap-inner__input"
+                type="text"
+                placeholder="输入你的姓名"
+                maxlength="10"
+            >
+        </form>
+    </view>
 {% endblock %}
