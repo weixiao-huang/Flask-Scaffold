@@ -2,7 +2,7 @@
 
 {% block content %}
     <div class="container__shake">
-        {{ name }}
+        摇一摇抽取你的清华签
     </div>
     <script>
         var num = 0
@@ -14,7 +14,7 @@
             acc = Math.sqrt(ax * ax + ay * ay + az * az)
             if (acc > 1) {
                 num ++
-                if (num > 4) {
+                if (num > 5) {
                     window.location = '/result?result={{ result }}&bg={{ bg }}'
                 }
             }

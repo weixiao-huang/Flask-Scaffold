@@ -25,7 +25,8 @@ def shake():
             result, bg = get_result_url_by_name(name)
             return render_template('shake.html', result=result, bg=bg)
     except Exception as e:
-        return e, 400
+        print(e, flush=True)
+        return 'get_result_url_by_name is abort', 400
 
 
 @main_blueprint.route('result', methods=['GET'])

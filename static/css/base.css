@@ -23,6 +23,10 @@ body::after {
   width: 90%;
 }
 
+.container__shake {
+  font-size: 4rem;
+}
+
 .wrap-inner__input {
   width: 90%;
   text-align: center;

@@ -33,6 +33,7 @@ class DevelopmentConfig(Config):
     """
     Development config class, same to Config
     """
+    REDIS_URL = "redis://redis:6379/0"
     pass
 
 

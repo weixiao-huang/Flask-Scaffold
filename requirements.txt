@@ -15,7 +15,9 @@ gunicorn==19.7.0
 itsdangerous==0.24        # via flask
 jinja2==2.9.5             # via flask
 markupsafe==0.23          # via jinja2
+olefile==0.44             # via pillow
 pep8==1.7.0
+Pillow==4.1.1
 pip-tools==1.8.0
 redis==2.10.5             # via flask-redis
 six==1.10.0               # via pip-tools
