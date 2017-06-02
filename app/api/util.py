@@ -19,28 +19,30 @@ def add_name_and_num(fn, name, num, genera, result_fn):
     numText = 'NO:%06d' % num
 
     nameLen = len(name.encode('gbk'))
+    print(name)
 
     genera = list(
         genera[(i * 3):(i * 3 + 3)] for i in range(math.ceil(len(genera) / 3))
     )
 
-    generaFontSize = 18
-    numFontSize = 12
-    fontSize = 30
-    fontSize2 = 14
+    generaFontSize = int(imgSize[0] * 0.056)
+    fontSize = int(generaFontSize * 1.5)
+    fontSize2 = int(fontSize * 0.4)
+    numFontSize = int(fontSize * 0.3)
     leftOffset = 0
-    numGap = 8
-    gap = 4
+    numGap = int(numFontSize)
+    gap = int(numFontSize)
+    genera_offset = int(generaFontSize * 0.15)
 
     if nameLen <= 4 * 2:
         leftOffset = 20
     elif 4 * 2 < nameLen <= 6 * 2:
         leftOffset = 10
-        fontSize = 24
+        fontSize = int(fontSize * 0.8)
     elif 6 * 2 < nameLen <= 8 * 2:
-        fontSize = 18
+        fontSize = int(fontSize * 0.65)
     else:
-        fontSize = 16
+        fontSize = int(fontSize * 0.5)
         leftOffset = -4
         if nameLen > 10 * 2:
             name = name[:10]
@@ -48,15 +50,15 @@ def add_name_and_num(fn, name, num, genera, result_fn):
 
     generaBeginPos = (
         imgSize[0] * 0.715,
-        imgSize[1] * 0.018
+        imgSize[1] * 0.015
     )
 
     numBeginPos = (
         imgSize[0] * 0.18 + leftOffset,
-        imgSize[1] * 0.1,
+        imgSize[1] * 0.09,
     )
     beginPos = (
-        numBeginPos[0] - 2,
+        numBeginPos[0] - 5,
         numBeginPos[1] + numFontSize + numGap,
     )
     endPos = (
@@ -81,7 +83,8 @@ def add_name_and_num(fn, name, num, genera, result_fn):
         )
 
     FONT_FILE = os.path.join(app.config['RESOURCES_DIR'], 'simhei.ttf')
-    generaFont = ImageFont.truetype(FONT_FILE, generaFontSize)
+    GENERA_FONT_FILE = os.path.join(app.config['RESOURCES_DIR'], 'fzfys.ttf')
+    generaFont = ImageFont.truetype(GENERA_FONT_FILE, generaFontSize)
     numFont = ImageFont.truetype(FONT_FILE, numFontSize)
     font = ImageFont.truetype(FONT_FILE, fontSize)
     font2 = ImageFont.truetype(FONT_FILE, fontSize2)
@@ -90,7 +93,7 @@ def add_name_and_num(fn, name, num, genera, result_fn):
     i = 0
     for item in genera:
         draw.text(
-            (generaBeginPos[0], generaBeginPos[1] + (generaFontSize + 3) * i),
+            (generaBeginPos[0], generaBeginPos[1] + (generaFontSize + genera_offset) * i),
             item,
             (0, 0, 0),
             font=generaFont
@@ -129,5 +132,5 @@ def get_result_url_by_name(name):
     select_file = selects[int(random() * 2)]
     result_fn = str(uuid.uuid1()) + '.png'
     print(time.strftime("%Y-%m-%d %X", time.localtime()), ': ', select_file)
-    return add_name_and_num(select_file, name, 12323, genera_name, result_fn), \
+    return add_name_and_num(select_file, name, 12323, genera_name, '1.png'), \
            os.path.join(RESULT_REL_DIR, 'genera', genera_file)
