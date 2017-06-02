@@ -17,6 +17,11 @@ class Config(object):
         os.environ.get('SECRET_KEY', 'ngJ4FvdqjEm9cGLutoQMjsbEFbigcuVd')
     DEBUG = True
 
+    STATIC_DIR = os.path.join(basedir, 'static')
+    GENERA_DIR = os.path.join(basedir, 'static', 'genera')
+    SENTENCES_DIR = os.path.join(basedir, 'img', 'sentences')
+    RESOURCES_DIR = os.path.join(basedir, 'resources')
+
     @staticmethod
     def init_app(app):
         pass
