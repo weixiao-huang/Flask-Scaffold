@@ -13,3 +13,8 @@ services:
      - FLASK_CONFIG=development
     ports:
       - 5000:5000
+  redis:
+    image: redis:3.2.1
+    volumes:
+      - redis:/data
+

@@ -40,6 +40,7 @@ class ProductionConfig(Config):
     """
     Production config class, rewrite attribute of basic config.
     """
+    REDIS_URL = "redis://redis:6379/0"
     DEBUG = False
 
 
