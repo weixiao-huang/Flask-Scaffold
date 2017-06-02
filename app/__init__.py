@@ -13,6 +13,8 @@ def create_app(name):
     app.config.from_object(configs[name])
 
     main = importlib.import_module('app.main')
-    app.register_blueprint(main.main_blueprint)
+    api = importlib.import_module('app.api')
+    app.register_blueprint(main.main_blueprint, url_prefix='/')
+    app.register_blueprint(api.api_blueprint, url_prefix='/api/v1')
 
     return app
