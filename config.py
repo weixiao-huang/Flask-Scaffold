@@ -20,6 +20,7 @@ class Config(object):
     STATIC_DIR = os.path.join(basedir, 'static')
     GENERA_DIR = os.path.join(basedir, 'static', 'genera')
     SENTENCES_DIR = os.path.join(basedir, 'img', 'sentences')
+    IMG_DIR = os.path.join(basedir, 'img')
     RESOURCES_DIR = os.path.join(basedir, 'resources')
 
     REDIS_URL = "redis://localhost:6379/0"

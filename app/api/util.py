@@ -11,7 +11,7 @@ from app import redis_store
 RESULT_REL_DIR = 'static'
 
 
-def add_name_and_num(fn, name, num, genera, result_fn):
+def add_name_and_num(fn, name, num, genera, result_fn, flag=0, genera_id=1):
     img = Image.open(fn)
     imgSize = img.size
 
@@ -102,6 +102,10 @@ def add_name_and_num(fn, name, num, genera, result_fn):
     draw.text(beginPos, name, (0, 0, 0), font=font)
     draw.text(endPos, '同学', (0, 0, 0), font=font2)
 
+    if flag == 1:
+        genera_file = os.path.join(app.config['IMG_DIR'], 'genera', '%02d.png' % genera_id)
+        genera = Image.open(genera_file)
+        img.paste(genera, (0, 0), genera)
     img.save(os.path.join(app.config['STATIC_DIR'], 'results', result_fn))
     return os.path.join(RESULT_REL_DIR, 'results', result_fn)
 
@@ -128,10 +132,12 @@ def get_result_url_by_name(name):
     )
 
     genera_name = genera_file[2:-4]
-    select_file = selects[int(random() * 2)]
+    genera_id = int(genera_file[:2])
+    select_id = int(random() * 2)
+    select_file = selects[select_id]
     result_fn = str(uuid.uuid1()) + '.png'
     print(time.strftime("%Y-%m-%d %X", time.localtime()), ': ', select_file)
     draw_num = int(redis_store.get('num:totals'))
     redis_store.incr('num:totals')
-    return add_name_and_num(select_file, name, draw_num, genera_name, result_fn), \
+    return add_name_and_num(select_file, name, draw_num, genera_name, '1.png', select_id, genera_id), \
            os.path.join(RESULT_REL_DIR, 'genera', genera_file)
