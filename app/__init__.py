@@ -22,6 +22,4 @@ def create_app(name):
     app.register_blueprint(main.main_blueprint, url_prefix='/')
     app.register_blueprint(api.api_blueprint, url_prefix='/api/v1')
 
-    redis_store.set('num:totals', 0)
-
     return app

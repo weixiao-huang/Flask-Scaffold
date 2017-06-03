@@ -49,13 +49,13 @@ body::after {
   font-size: 3rem;
   outline: none;
   height: 100%;
-  margin-right: 7%;
+  margin-right: 5%;
   background: transparent;
   border: none;
 }
 
 .form {
-  margin-top: -13%;
+  margin-top: -14%;
 }
 
 .result-img {
