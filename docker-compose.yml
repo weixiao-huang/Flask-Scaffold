@@ -4,6 +4,7 @@ services:
     build: .
     restart: always
     volumes:
-     - ./static/results:/usr/src/app/static/results
+     - ./static:/usr/src/app/static
+     - ./img:/usr/src/app/img
     ports:
      - 5001:5001

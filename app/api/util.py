@@ -31,7 +31,7 @@ def add_name(fn, name, result_fn, flag):
 
     font = ImageFont.truetype(FONT_FILE, font_size)
     draw = ImageDraw.Draw(img)
-    draw.text(beginPos, name, (255, 255, 255), font=font)
+    draw.text(beginPos, name, (0, 0, 0), font=font)
 
     img.save(os.path.join(app.config['STATIC_DIR'], 'results', result_fn))
     return os.path.join(RESULT_REL_DIR, 'results', result_fn)
