@@ -1,16 +1,5 @@
 {% extends "base.html" %}
 
-{% block header %}
-    <style>
-        body {
-            background-size: 100% 100%;
-            -webkit-background-size: 100% 100%;
-        }
-    </style>
-{% endblock %}
-
 {% block content %}
-    <div class="container__result">
-        <img class="result-img" src="{{ result }}" alt="">
-    </div>
+    <img class="result-img" src="{{ result }}" alt="">
 {% endblock %}

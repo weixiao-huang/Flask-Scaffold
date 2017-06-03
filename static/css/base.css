@@ -2,6 +2,7 @@ body {
   width: 100vw;
   height: 100vh;
   text-align: center;
+  background: white;
   -webkit-background-size: 100% 100%;
   background-size: 100% 100%;
   font-family: "Arial","Microsoft YaHei","黑体","宋体",sans-serif;
@@ -19,22 +20,8 @@ body::after {
 }
 
 .container {
+  height: 100%;
   width: 90%;
-}
-
-.index__content {
-  text-align: right;
-  padding: 0 10%;
-}
-
-.index__cover {
-  width: 100%;
-}
-
-.index__footer {
-  margin-top: 7%;
-  margin-right: 2%;
-  width: 70%;
 }
 
 .container__shake {
@@ -43,18 +30,21 @@ body::after {
 
 
 .index__input {
-  width: 60%;
   text-align: center;
   font-size: 3rem;
   outline: none;
-  height: 100%;
-  margin-right: 5%;
+  /*height: 100%;*/
+  width: calc(100vh * 0.5539 * 0.4);
   background: transparent;
   border: none;
+  /*border: 1px solid black;*/
 }
 
 .form {
-  margin-top: -14%;
+  position: absolute;
+  text-align: left;
+  left: calc(100vw / 2 - 100vh * 0.5539 * 0.15);
+  bottom: 3.8%;
 }
 
 .result-img {

@@ -3,24 +3,25 @@
 {% block header %}
     <style>
         body {
-            background: #fee8e9;
+            background: #ffe8ea;
+        }
+        .container {
+            background: url("/static/img/index.png") no-repeat center center;
+            -webkit-background-size: auto 100%;
+            background-size: auto 100%;
         }
     </style>
 {% endblock %}
 
 {% block content %}
-    <img class="index__header" src="/static/img/firstHeader.png" alt="">
-    <div class="index__content">
-        <img class="index__cover" src="/static/img/firstCover2.png" alt="">
-        <form class="form" action="/" method="post">
-            <input
-                id="input"
-                name="name"
-                class="index__input"
-                type="text"
-                maxlength="10"
-            >
-        </form>
-        <img class="index__footer" src="/static/img/firstFooter.png" alt="">
-    </div>
+{#    <img class="index__cover" src="/static/img/index.png" alt="">#}
+    <form class="form" action="/" method="post">
+        <input
+            id="input"
+            name="name"
+            class="index__input"
+            type="text"
+            maxlength="10"
+        >
+    </form>
 {% endblock %}

@@ -27,9 +27,9 @@ def add_name_and_num(fn, name, num, genera, result_fn, flag=0, genera_id=1):
     generaFontSize = int(imgSize[0] * 0.056)
     fontSize = int(generaFontSize * 1.5)
     fontSize2 = int(fontSize * 0.4)
-    numFontSize = int(fontSize * 0.3)
+    numFontSize = int(fontSize * 0.5)
     leftOffset = 0
-    numGap = int(numFontSize)
+    numGap = int(fontSize * 0.2)
     gap = int(numFontSize)
     genera_offset = int(generaFontSize * 0.15)
 
