@@ -37,7 +37,18 @@ body::after {
   width: calc(100vh * 0.5539 * 0.4);
   background: transparent;
   border: none;
-  /*border: 1px solid black;*/
+  border: 1px solid black;
+}
+
+.index__submit {
+  /*border: 1px solid red;*/
+  border: none;
+  /*background: transparent;*/
+  border-radius: 100%;
+  width: calc(100vh * 0.1);
+  height: calc(100vh * 0.1);
+  font-size: 2.5em;
+  text-align: center;
 }
 
 .form {
@@ -46,6 +57,18 @@ body::after {
   left: calc(100vw / 2 - 100vh * 0.5539 * 0.15);
   bottom: 3.8%;
 }
+
+
+.form::after, .index__input, .index__submit {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.form::after {
+    content: '';
+    height: 100%;
+}
+
 
 .result-img {
   width: 100%;
