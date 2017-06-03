@@ -3,9 +3,12 @@
 {% block header %}
     <style>
         body {
+            background: #ffe8ea;
+        }
+        .container {
             background: url("/static/img/shake.jpeg") no-repeat center center;
-            -webkit-background-size: 100% 100%;
-            background-size: 100% 100%;
+            -webkit-background-size: auto 100%;
+            background-size: auto 100%;
         }
     </style>
 {% endblock %}
@@ -21,7 +24,7 @@
             var az = event.acceleration.z | 0
             console.log('(' + ax + ', ' + ay + ', ' + az + ')')
             acc = Math.sqrt(ax * ax + ay * ay + az * az)
-            if (acc > 1) {
+            if (acc > 1.2) {
                 num ++
                 if (num > 5) {
                     window.location = '/result?result={{ result }}&bg={{ bg }}'

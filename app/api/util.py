@@ -26,11 +26,11 @@ def add_name_and_num(fn, name, num, genera, result_fn, flag=0, genera_id=1):
 
     generaFontSize = int(imgSize[0] * 0.056)
     fontSize = int(generaFontSize * 1.5)
-    fontSize2 = int(fontSize * 0.4)
+    fontSize2 = int(fontSize * 0.6)
     numFontSize = int(fontSize * 0.5)
     leftOffset = 0
     numGap = int(fontSize * 0.2)
-    gap = int(numFontSize)
+    gap = int(fontSize * 0.14)
     genera_offset = int(generaFontSize * 0.15)
 
     if nameLen <= 4 * 2:
@@ -40,6 +40,7 @@ def add_name_and_num(fn, name, num, genera, result_fn, flag=0, genera_id=1):
         fontSize = int(fontSize * 0.8)
     elif 6 * 2 < nameLen <= 8 * 2:
         fontSize = int(fontSize * 0.65)
+        leftOffset = -4
     else:
         fontSize = int(fontSize * 0.5)
         leftOffset = -4

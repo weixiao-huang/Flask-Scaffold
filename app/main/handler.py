@@ -14,7 +14,7 @@ def index():
         else:
             return render_template('index.html')
     except ValueError:
-        return 'ValueError', 400
+        return '输入的名字不能为空', 400
 
 
 @main_blueprint.route('shake', methods=['GET', 'POST'])

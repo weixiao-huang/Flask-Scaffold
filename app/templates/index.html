@@ -15,7 +15,7 @@
 
 {% block content %}
 {#    <img class="index__cover" src="/static/img/index.png" alt="">#}
-    <form class="form" action="/" method="post">
+    <form class="form" id="form" action="/" method="post">
         <input
             id="input"
             name="name"
@@ -24,6 +24,15 @@
             maxlength="10"
             placeholder="输入你的姓名"
         >
-        <input class="index__submit" type="submit" value="">
+        <input class="index__submit" type="button" value="" onclick="submit()">
     </form>
+    <script>
+        function submit() {
+            var form = document.getElementById('form')
+            var inputValue = document.getElementById('input').value
+            if (inputValue) {
+                form.submit()
+            } else alert('输入名字不能为空')
+        }
+    </script>
 {% endblock %}
