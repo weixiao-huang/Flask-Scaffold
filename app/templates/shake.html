@@ -1,8 +1,17 @@
 {% extends "base.html" %}
 
+{% block header %}
+    <style>
+        body {
+            background: url("/static/img/shake.jpeg") no-repeat center center;
+            -webkit-background-size: 100% 100%;
+            background-size: 100% 100%;
+        }
+    </style>
+{% endblock %}
+
 {% block content %}
     <div class="container__shake">
-        摇一摇抽取你的清华签
     </div>
     <script>
         var num = 0
