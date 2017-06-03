@@ -17,6 +17,10 @@ class Config(object):
         os.environ.get('SECRET_KEY', 'ngJ4FvdqjEm9cGLutoQMjsbEFbigcuVd')
     DEBUG = True
 
+    STATIC_DIR = os.path.join(basedir, 'static')
+    RESOURCES_DIR = os.path.join(basedir, 'resources')
+    IMG_DIR = os.path.join(basedir, 'img')
+
     @staticmethod
     def init_app(app):
         pass
@@ -39,7 +43,7 @@ class ProductionConfig(Config):
 configs = {
     'development': DevelopmentConfig,
     'production': ProductionConfig,
-    'default': DevelopmentConfig,
+    'default': Config,
 }
 
 importlib.import_module('config_local')
