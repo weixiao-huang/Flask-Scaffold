@@ -28,7 +28,6 @@ body::after {
   font-size: 4rem;
 }
 
-
 .index__input {
   text-align: center;
   font-size: 3rem;
@@ -44,7 +43,7 @@ body::after {
   position: absolute;
   text-align: left;
   left: calc(100vw / 2 - 100vh * 0.5539 * 0.15);
-  bottom: 3.8%;
+  bottom: 14%;
 }
 
 .result-img {
