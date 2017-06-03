@@ -23,32 +23,54 @@ body::after {
   width: 90%;
 }
 
+.index__content {
+  text-align: right;
+  padding: 0 10%;
+}
+
+.index__cover {
+  width: 100%;
+}
+
+.index__footer {
+  margin-top: 7%;
+  margin-right: 2%;
+  width: 70%;
+}
+
 .container__shake {
   font-size: 4rem;
 }
 
-.wrap-inner__input {
-  width: 90%;
+
+.index__input {
+  width: 60%;
   text-align: center;
-  font-size: 4rem;
+  font-size: 3rem;
   outline: none;
-  height: 10rem;
-  border: 2px solid #baafc6;
+  height: 100%;
+  margin-right: 7%;
+  background: transparent;
+  border: none;
+}
+
+.form {
+  margin-top: -13%;
 }
 
 .result-img {
   width: 100%;
 }
 
-input::-webkit-input-placeholder { /* WebKit browsers */
-  color: #7667bb;
-}
-input:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
-  color: #7667bb;
-}
-input::-moz-placeholder { /* Mozilla Firefox 19+ */
-  color: #7667bb;
-}
-input:-ms-input-placeholder { /* Internet Explorer 10+ */
-  color: #7667bb;
-}
+/*input::-webkit-input-placeholder { !* WebKit browsers *!*/
+  /*color: #d4d3d3;*/
+/*}*/
+/*input:-moz-placeholder { !* Mozilla Firefox 4 to 18 *!*/
+  /*color: #d4d3d3;*/
+/*}*/
+/*input::-moz-placeholder { !* Mozilla Firefox 19+ *!*/
+  /*color: #d4d3d3;*/
+/*}*/
+/*input:-ms-input-placeholder { !* Internet Explorer 10+ *!*/
+  /*color: #d4d3d3;*/
+/*}*/

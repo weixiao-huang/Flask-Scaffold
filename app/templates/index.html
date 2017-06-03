@@ -1,16 +1,27 @@
 {% extends "base.html" %}
 
+{% block header %}
+    <style>
+        body {
+            background: #fee8e9;
+        }
+    </style>
+{% endblock %}
+
 {% block content %}
-    <view class="container__index">
+    <img class="index__header" src="/static/img/firstHeader.png" alt="">
+    <div class="index__content">
+        <img class="index__cover" src="/static/img/firstCover2.png" alt="">
         <form class="form" action="/" method="post">
             <input
                 id="input"
                 name="name"
-                class="wrap-inner__input"
+                class="index__input"
                 type="text"
                 placeholder="输入你的姓名"
                 maxlength="10"
             >
         </form>
-    </view>
+        <img class="index__footer" src="/static/img/firstFooter.png" alt="">
+    </div>
 {% endblock %}

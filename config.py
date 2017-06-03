@@ -48,7 +48,7 @@ class ProductionConfig(Config):
 configs = {
     'development': DevelopmentConfig,
     'production': ProductionConfig,
-    'default': DevelopmentConfig,
+    'default': Config,
 }
 
 importlib.import_module('config_local')
