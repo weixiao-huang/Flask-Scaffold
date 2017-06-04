@@ -33,7 +33,7 @@ body::after {
   font-size: 3em;
   outline: none;
   /*height: 100%;*/
-  width: 56%;
+  width: 54%;
   background: transparent;
   border: none;
   /*border: 1px solid black;*/
@@ -53,7 +53,7 @@ body::after {
 .form {
   position: absolute;
   text-align: left;
-  left: 36%;
+  left: 35%;
   bottom: 14%;
 }
 
