@@ -6,7 +6,7 @@
             background: #ffe8ea;
         }
         .container {
-            background: url("/static/img/shake.jpeg") no-repeat center center;
+            background: url("/static/img/shake.png") no-repeat center center;
             -webkit-background-size: auto 100%;
             background-size: auto 100%;
         }
@@ -24,9 +24,9 @@
             var az = event.acceleration.z | 0
             console.log('(' + ax + ', ' + ay + ', ' + az + ')')
             acc = Math.sqrt(ax * ax + ay * ay + az * az)
-            if (acc > 1.2) {
+            if (acc > 4) {
                 num ++
-                if (num > 5) {
+                if (num > 10) {
                     window.location = '/result?result={{ result }}&bg={{ bg }}'
                 }
             }

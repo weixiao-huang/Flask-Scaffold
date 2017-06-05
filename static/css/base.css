@@ -73,6 +73,14 @@ body::after {
   width: 100%;
 }
 
+.result-press {
+  height: 12%;
+  margin-top: -2%;
+  background: url('/static/img/press.png') no-repeat center center;
+  -webkit-background-size: 100% auto;
+  background-size: 100% 100%;
+}
+
 /*input::-webkit-input-placeholder { !* WebKit browsers *!*/
   /*color: #d4d3d3;*/
 /*}*/

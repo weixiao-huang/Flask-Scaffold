@@ -83,7 +83,7 @@ def add_name_and_num(fn, name, num, genera, result_fn, flag=0, genera_id=1):
         )
 
     FONT_FILE = os.path.join(app.config['RESOURCES_DIR'], 'simhei.ttf')
-    GENERA_FONT_FILE = os.path.join(app.config['RESOURCES_DIR'], 'fzfys.ttf')
+    GENERA_FONT_FILE = os.path.join(app.config['RESOURCES_DIR'], 'HYTiaoTiaoTiJ.ttf')
     generaFont = ImageFont.truetype(GENERA_FONT_FILE, generaFontSize)
     numFont = ImageFont.truetype(FONT_FILE, numFontSize)
     font = ImageFont.truetype(FONT_FILE, fontSize)
@@ -95,7 +95,7 @@ def add_name_and_num(fn, name, num, genera, result_fn, flag=0, genera_id=1):
         draw.text(
             (generaBeginPos[0], generaBeginPos[1] + (generaFontSize + genera_offset) * i),
             item,
-            (0, 0, 0),
+            (80, 80, 80),
             font=generaFont
         )
         i += 1
@@ -107,6 +107,7 @@ def add_name_and_num(fn, name, num, genera, result_fn, flag=0, genera_id=1):
         genera_file = os.path.join(app.config['IMG_DIR'], 'genera', '%02d.png' % genera_id)
         genera = Image.open(genera_file)
         img.paste(genera, (0, 0), genera)
+    img = img.crop((0, 0, imgSize[0], imgSize[1] * 0.92))
     img.save(os.path.join(app.config['STATIC_DIR'], 'results', result_fn))
     return os.path.join(RESULT_REL_DIR, 'results', result_fn)
 
