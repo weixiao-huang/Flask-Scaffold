@@ -17,19 +17,38 @@
     <div class="container__shake">
     </div>
     <script>
-        var num = 0
-        window.addEventListener('devicemotion', function (event) {
-            var ax = event.acceleration.x | 0
-            var ay = event.acceleration.y | 0
-            var az = event.acceleration.z | 0
-            console.log('(' + ax + ', ' + ay + ', ' + az + ')')
-            acc = Math.sqrt(ax * ax + ay * ay + az * az)
-            if (acc > 4) {
-                num ++
-                if (num > 10) {
-                    window.location = '/result?result={{ result }}&bg={{ bg }}'
+//运动事件监听
+if (window.DeviceMotionEvent) {
+    window.addEventListener('devicemotion',deviceMotionHandler,false);
+}
+
+//获取加速度信息
+//通过监听上一步获取到的x, y, z 值在一定时间范围内的变化率，进行设备是否有进行晃动的判断。
+//而为了防止正常移动的误判，需要给该变化率设置一个合适的临界值。
+var SHAKE_THRESHOLD = 5000;
+var last_update = 0;
+var num = 0;
+var x, y, z, last_x = 0, last_y = 0, last_z = 0;
+function deviceMotionHandler(eventData) {
+        var acceleration =eventData.accelerationIncludingGravity;
+        var curTime = new Date().getTime();
+        if ((curTime-last_update)> 10) {
+            var diffTime = curTime -last_update;
+            last_update = curTime;
+            x = acceleration.x;
+            y = acceleration.y;
+            z = acceleration.z;
+            var speed = Math.abs(x +y + z - last_x - last_y - last_z) / diffTime * 10000;
+            if (speed > SHAKE_THRESHOLD) {
+                if (num > 3) {
+                    window.location = '/result?result={{ result }}&bg={{ bg }}';
                 }
+                num ++;
             }
-        })
+            last_x = x;
+            last_y = y;
+            last_z = z;
+        }
+}
     </script>
 {% endblock %}

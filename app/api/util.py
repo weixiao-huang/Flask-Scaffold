@@ -83,7 +83,7 @@ def add_name_and_num(fn, name, num, genera, result_fn, flag=0, genera_id=1):
         )
 
     FONT_FILE = os.path.join(app.config['RESOURCES_DIR'], 'simhei.ttf')
-    GENERA_FONT_FILE = os.path.join(app.config['RESOURCES_DIR'], 'HYTiaoTiaoTiJ.ttf')
+    GENERA_FONT_FILE = os.path.join(app.config['RESOURCES_DIR'], 'fzfys.ttf')
     generaFont = ImageFont.truetype(GENERA_FONT_FILE, generaFontSize)
     numFont = ImageFont.truetype(FONT_FILE, numFontSize)
     font = ImageFont.truetype(FONT_FILE, fontSize)
