@@ -6,6 +6,8 @@ body {
   -webkit-background-size: 100% 100%;
   background-size: 100% 100%;
   font-family: "Arial","Microsoft YaHei","黑体","宋体",sans-serif;
+  margin: 0;
+  padding: 0;
   overflow: hidden;
 }
 
@@ -21,12 +23,12 @@ body::after {
 
 .outer-border {
   border: 2px solid rgba(255, 255, 255, 0.6);
-  padding: 5%;
+  padding: 30px;
 }
 
 .inner-border {
   border: 10px solid rgba(255, 255, 255, 0.8);
-  padding: 5%;
+  padding: 30px;
 }
 
 .wrap-inner {
@@ -34,7 +36,7 @@ body::after {
 }
 
 .form {
-  width: 100%;
+  width: 46vw;
   background: white;
 }
 
@@ -46,30 +48,40 @@ body::after {
   border: none;
   background: transparent;
 }
-
+/*
 img {
-  width: 80%;
-  padding: 15% 0;
+  width: 70%;
+  padding: 10% 0;
 }
+*/
 
 .result__img {
-  width: 100%;
+  width: 80vw;
   padding: 0;
 }
-
+/*
 .wrap-index__header, .wrap-index__footer {
   width: 100%;
 }
 
+.plane {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  right: 20px;
+  top: 20px;
+  padding: 0;
+}
+*/
 input::-webkit-input-placeholder { /* WebKit browsers */
   color: #2a849a;
 }
 input:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
-  color:    #999;
+  color: #2a849a;
 }
 input::-moz-placeholder { /* Mozilla Firefox 19+ */
-  color:    #999;
+  color: #2a849a;
 }
 input:-ms-input-placeholder { /* Internet Explorer 10+ */
-  color:    #999;
+  color: #2a849a;
 }

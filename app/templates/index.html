@@ -1,12 +1,36 @@
 {% extends "base.html" %}
 
+{% block header %}
+    <style>
+        img {
+            width: 35vw;
+            padding: 30px 0;
+        }
+
+.wrap-index__header, .wrap-index__footer {
+  width: 100%;
+}
+
+.plane {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  right: 20px;
+  top: 20px;
+  padding: 0;
+}
+
+    </style>
+{% endblock %}
+
 {% block content %}
     <div class="outer-border">
         <div class="inner-border">
             <div class="wrap-inner">
-                <view class="wrap-index__header">
+                <img src="/static/img/plane.png" class="plane">
+                <div class="wrap-index__header">
                     <img class="wrap-index__header__img" src="{{ url_for("static", filename="img/header.png") }}" alt="">
-                </view>
+                </div>
                 <form class="form" action="/" method="post">
                     <input
                         id="input"
@@ -17,9 +41,9 @@
                         maxlength="10"
                     >
                 </form>
-                <view class="wrap-index__footer">
+                <div class="wrap-index__footer">
                     <img class="wrap-index__footer__img" src="{{ url_for("static", filename="img/footer.png") }}" alt="">
-                </view>
+                </div>
             </div>
         </div>
     </div>

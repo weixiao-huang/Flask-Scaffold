@@ -21,6 +21,8 @@ class Config(object):
     RESOURCES_DIR = os.path.join(basedir, 'resources')
     IMG_DIR = os.path.join(basedir, 'img')
 
+    REDIS_URL = "redis://localhost:6379/0"
+
     @staticmethod
     def init_app(app):
         pass
@@ -30,13 +32,14 @@ class DevelopmentConfig(Config):
     """
     Development config class, same to Config
     """
-    pass
+    REDIS_URL = "redis://redis:6379/0"
 
 
 class ProductionConfig(Config):
     """
     Production config class, rewrite attribute of basic config.
     """
+    REDIS_URL = "redis://redis:6379/0"
     DEBUG = False
 
 
