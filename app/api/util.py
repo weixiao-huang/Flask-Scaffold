@@ -50,7 +50,7 @@ def add_name_and_num(fn, name, num, genera, result_fn, flag=0, genera_id=1):
 
     generaBeginPos = (
         imgSize[0] * 0.7,
-        imgSize[1] * 0.015
+        imgSize[1] * 0.025
     )
 
     numBeginPos = (
