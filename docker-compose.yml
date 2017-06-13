@@ -3,6 +3,11 @@ services:
   web:
     build: .
     restart: always
+    volumes:
+      - ./static:/usr/src/app/static
+      - ./img:/usr/sra/app/img
+    ports:
+      - 5002:5002
   web-dev:
     build: .
     volumes:
@@ -12,4 +17,4 @@ services:
      - PIP_INDEX_URL=https://pypi.tuna.tsinghua.edu.cn/simple
      - FLASK_CONFIG=development
     ports:
-      - 5000:5000
+      - 5052:5052
