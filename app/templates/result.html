@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block header %}
+    <link rel="stylesheet" href="/static/css/result.css">
+{% endblock %}
+
+{% block content %}
+    <img src="{{ url }}" alt="">
+    <form action="/draw" id="result__form" class="result__btn" method="post">
+        <img onclick="submitAgain()" src="/static/img/result/btn1.png" alt="">
+        <input type="hidden" name="id" value="{{ id }}">
+        <input type="hidden" name="name" value="{{ name }}">
+    </form>
+    <script>
+        function submitAgain() {
+            var form = document.getElementById('result__form')
+            form.submit()
+        }
+    </script>
+{% endblock %}

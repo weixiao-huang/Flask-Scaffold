@@ -1,0 +1,38 @@
+body {
+  width: 100vw;
+  height: 100vh;
+  text-align: center;
+  background: white;
+  -webkit-background-size: 100% 100%;
+  background-size: 100% 100%;
+  font-family: "Arial","Microsoft YaHei","黑体","宋体",sans-serif;
+  overflow: hidden;
+}
+
+body::after, .container {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+body::after {
+    content: '';
+    height: 100%;
+}
+
+.container {
+  height: 100%;
+  width: 90%;
+}
+
+/*input::-webkit-input-placeholder { !* WebKit browsers *!*/
+  /*color: #d4d3d3;*/
+/*}*/
+/*input:-moz-placeholder { !* Mozilla Firefox 4 to 18 *!*/
+  /*color: #d4d3d3;*/
+/*}*/
+/*input::-moz-placeholder { !* Mozilla Firefox 19+ *!*/
+  /*color: #d4d3d3;*/
+/*}*/
+/*input:-ms-input-placeholder { !* Internet Explorer 10+ *!*/
+  /*color: #d4d3d3;*/
+/*}*/

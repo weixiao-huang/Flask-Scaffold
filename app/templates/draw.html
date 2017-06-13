@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block header %}
+    <link rel="stylesheet" href="/static/css/draw.css">
+{% endblock %}
+
+{% block content %}
+    <div class="draw__header">
+        <img src="/static/img/draw/header.png" alt="">
+    </div>
+    <div class="draw__wheel--wrap">
+        <div class="draw__wheel">
+            <img src="/static/img/draw/pointer2.png" alt="">
+        </div>
+    </div>
+    <form action="/draw" method="post">
+        <input type="hidden" name="id" value="{{ id }}">
+        <input
+            maxlength="10"
+            class="draw__input"
+            placeholder="请输入你的名字"
+            type="text"
+            name="name"
+        >
+        <input class="draw__submit" type="submit" value="确　认">
+    </form>
+{% endblock %}

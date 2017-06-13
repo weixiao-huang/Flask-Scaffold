@@ -1,0 +1,61 @@
+body {
+  background: url("/static/img/bg.png") no-repeat center center;
+  -webkit-background-size: 100% 100%;
+  background-size: 100% 100%;
+  background-blend-mode: screen;
+}
+
+.draw__header, .draw__header img {
+  width: 100%;
+}
+
+.draw__wheel--wrap {
+  width: 100%;
+  padding: 0 5%;
+}
+
+.draw__wheel {
+  width: 100%;
+  background: url("/static/img/draw/wheel2.png") no-repeat center center;
+  -webkit-background-size: 100% auto;
+  background-size: 100% auto;
+}
+
+.draw__wheel img {
+  width: 100%;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.draw__input, .draw__submit {
+  font-size: 3em;
+  width: 60%;
+  /*-webkit-border-radius:;*/
+  /*-moz-border-radius:;*/
+  border-radius: 50px;
+  padding: 0 50px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  margin: 30px 0;
+  appearance: none;
+  height: 120px;
+  text-align: center;
+}
+
+.draw__input {
+  border: 1px solid #f27978;
+}
+
+.draw__submit {
+  font-size: 3.6em;
+  color: white;
+  background: #ee7776;
+  border: none;
+  -webkit-box-shadow: 0 10px #e15456;
+  -moz-box-shadow: 0 10px #e15456;
+  box-shadow: 0 10px #e15456;
+}

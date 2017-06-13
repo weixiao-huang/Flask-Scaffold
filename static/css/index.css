@@ -1,0 +1,28 @@
+body {
+  background: url("/static/img/bg.png") no-repeat center center;
+  -webkit-background-size: 100% 100%;
+  background-size: 100% 100%;
+}
+
+.index__header, .index__header img {
+  width: 100%;
+}
+
+.index__header {
+  height: 50%;
+}
+
+.index__button--wrap {
+  width: 100%;
+  height: 50%;
+}
+
+.index__button {
+  width: 32%;
+  padding: 2%;
+  display: inline-block;
+}
+
+.index__button img {
+  width: 100%;
+}
