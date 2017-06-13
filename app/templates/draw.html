@@ -2,6 +2,7 @@
 
 {% block header %}
     <link rel="stylesheet" href="/static/css/draw.css">
+    <link rel="stylesheet" href="/static/css/animate.css">
 {% endblock %}
 
 {% block content %}
@@ -9,19 +10,54 @@
         <img src="/static/img/draw/header.png" alt="">
     </div>
     <div class="draw__wheel--wrap">
-        <div class="draw__wheel">
-            <img src="/static/img/draw/pointer2.png" alt="">
+        <div id="wheel" class="draw__wheel">
+            <img class="dash" id="pointer" src="/static/img/draw/pointer2.png" alt="">
         </div>
     </div>
-    <form action="/draw" method="post">
+    <form id="draw__form" action="/draw" method="post" onsubmit="return next()">
         <input type="hidden" name="id" value="{{ id }}">
         <input
+            id="draw__input"
             maxlength="10"
             class="draw__input"
             placeholder="请输入你的名字"
             type="text"
             name="name"
         >
-        <input class="draw__submit" type="submit" value="确　认">
+        <input id="personalityId" type="hidden" name="personalityId">
+        <input id="draw__submit" class="draw__submit" type="submit" value="确　认">
     </form>
+    <script>
+        function next() {
+            if (!document.getElementById('draw__input').value) return true
+            var dg = 40
+            var deg = parseInt(Math.random() * 90) * 40 + 2400
+            var personalityId = deg % 360 / 40
+            var submitBtn = document.getElementById('draw__submit')
+            submitBtn.disabled = true
+
+            document.getElementById('pointer').src = '/static/img/draw/pointer3.png'
+            $('#wheel').css({
+                'background': 'url("/static/img/draw/wheel3.png") no-repeat center center',
+                '-webkit-background-size': '100% auto',
+                'background-size': '100% auto',
+                'width': '100%'
+            })
+            $('#pointer').css({
+                '-webkit-transform': 'rotateZ(' + deg + 'deg)',
+                '-moz-transform': 'rotateZ(' + deg + 'deg)',
+                '-ms-transform': 'rotateZ(' + deg + 'deg)',
+                '-o-transform': 'rotateZ(' + deg + 'deg)',
+                'transform': 'rotateZ(' + deg + 'deg)'
+            })
+            setTimeout(function () {
+                var form = document.getElementById('draw__form')
+                var pInput = document.getElementById('personalityId')
+                pInput.value = personalityId
+                form.onsubmit = true
+                form.submit()
+            }, 5000)
+            return false
+        }
+    </script>
 {% endblock %}

@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block header %}
+    <style>
+        .container {
+            height: 100vh;
+            font-size: 3em;
+            text-align: center;
+        }
+        .container::after, div {
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        .error-img {
+            display: block;
+            text-align: center;
+            margin: 20% 0;
+        }
+        .error-img img {
+            width: 50%;
+        }
+
+
+        div::after {
+            content: '';
+            height: 100%;
+        }
+    </style>
+{% endblock %}
+
+{% block content %}
+    <div>
+        <div class="error-img">
+            <img src="/static/img/empty.png" >
+        </div>
+        <div>输入的名字不能为空</div>
+    </div>
+{% endblock %}

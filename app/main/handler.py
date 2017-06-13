@@ -19,15 +19,27 @@ def draw():
             return render_template('index.html',
                                    imgs=[1, 2, 3, 4, 5, 6])
     else:
-        id = int(request.form['id'])
-        name = request.form['name']
-        print('1231231231', id, name)
-        url = get_result_url_by_name_and_id(name, id)
-        print(url)
+        id = int(request.form.get('id'))
+        name = request.form.get('name')
+
+        if id is None:
+            return render_template('index.html',
+                                   imgs=[1, 2, 3, 4, 5, 6])
+        elif name is None or name == '':
+            return render_template('empty.html')
+
+        pId = request.form.get('personalityId')
+        try:
+            if pId is not None:
+                pId = int(pId) + 1
+            url, pId = get_result_url_by_name_and_id(name, id, pId)
+        except ValueError:
+            url, pId = get_result_url_by_name_and_id(name, id)
         return render_template('result.html',
                                url=url,
                                id=id,
-                               name=name)
+                               name=name,
+                               pId=pId)
 
 
 @main_blueprint.route('/result')

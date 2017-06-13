@@ -95,3 +95,5 @@ db/*
 # config_local
 config_local.py
 static/results/*
+
+img
