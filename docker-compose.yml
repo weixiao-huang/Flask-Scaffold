@@ -8,6 +8,10 @@ services:
       - ./img:/usr/src/app/img
     ports:
       - 5002:5002
+  redis:
+    image: redis
+    volumes:
+      - ./redis:/data
   web-dev:
     build: .
     volumes:
