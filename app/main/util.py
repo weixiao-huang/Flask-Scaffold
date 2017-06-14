@@ -6,6 +6,7 @@ from random import random
 import uuid
 import time
 from flask import current_app as app
+from app import redis_store
 
 RESULT_REL_DIR = 'static'
 
@@ -38,6 +39,9 @@ def get_result_url_by_name_and_id(name, id, pId=None):
         return add_name(os.path.join(SENTENCES_DIR, selected_file), name, result_fn), selected_file.split('.png')[0]
     files = os.listdir(SENTENCES_DIR)
     selected_file = files[int(random() * len(files))]
+
     print(time.strftime("%Y-%m-%d %X", time.localtime()), ': ', selected_file)
+    redis_store.incr('num:totals')
+
     return add_name(os.path.join(SENTENCES_DIR, selected_file), name, result_fn), selected_file.split('.png')[0]
 
