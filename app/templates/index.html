@@ -11,7 +11,7 @@
     <form id="index__form" class="index__button--wrap" action="/draw" method="GET">
         {% for foo in imgs %}
             <a onclick="submitForm({{ foo }})" class="index__button" href="#">
-                <img src="/static/img/index/{{ foo }}.png">
+                <img src="/static/img/index/0{{ foo }}.png">
             </a>
         {% endfor %}
         <input type="hidden" name="id" id="index__id">
