@@ -14,6 +14,9 @@ def draw():
     if request.method == 'GET':
         try:
             id = int(request.args.get('id'))
+            name = request.args.get('name')
+            if name is not None:
+                return render_template('draw.html', id=id, name=name)
             return render_template('draw.html', id=id)
         except (ValueError, TypeError) as e:
             return render_template('index.html',

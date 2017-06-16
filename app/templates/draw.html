@@ -11,14 +11,14 @@
     </div>
     <div class="draw__wheel--wrap">
         <div id="wheel" class="draw__wheel">
-            <img class="dash" id="pointer" src="/static/img/draw/pointer2.png" alt="">
+            <img class="dash" id="pointer" src="/static/img/draw/pointer{{ id }}.png" alt="">
         </div>
     </div>
     <form id="draw__form" action="/draw" method="post" onsubmit="return next()">
         <input type="hidden" name="id" value="{{ id }}">
         <input
             id="draw__input"
-            maxlength="10"
+            maxlength="8"
             class="draw__input"
             placeholder="请输入你的名字"
             type="text"
@@ -36,7 +36,6 @@
             var submitBtn = document.getElementById('draw__submit')
             submitBtn.disabled = true
 
-            document.getElementById('pointer').src = '/static/img/draw/pointer3.png'
             $('#wheel').css({
                 'background': 'url("/static/img/draw/wheel3.png") no-repeat center center',
                 '-webkit-background-size': '100% auto',
@@ -54,10 +53,16 @@
                 var form = document.getElementById('draw__form')
                 var pInput = document.getElementById('personalityId')
                 pInput.value = personalityId
-                form.onsubmit = true
                 form.submit()
             }, 5000)
             return false
         }
+        window.onload = function () {
+            if ('{{ name }}') {
+                document.getElementById('draw__input').value = '{{ name }}'
+                next()
+            }
+        }
+
     </script>
 {% endblock %}

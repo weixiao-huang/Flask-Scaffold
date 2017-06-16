@@ -15,13 +15,18 @@ def add_name(fn, name, result_fn):
     img = Image.open(fn)
     img_size = img.size
 
-    font_size = int(img_size[0] * 0.055)
+    # font_size = int(img_size[0] * 0.055)
+    font_size = int(img_size[0] * 0.07)
     font_file = os.path.join(app.config['RESOURCES_DIR'], 'FZZY.TTF')
 
     begin_pos = (
-        img_size[0] * 0.29,
-        img_size[1] * 0.41
+        img_size[0] * 0.295,
+        img_size[1] * 0.4
     )
+    # begin_pos = (
+    #     img_size[0] * 0.32,
+    #     img_size[1] * 0.40
+    # )
 
     font = ImageFont.truetype(font_file, font_size)
     draw = ImageDraw.Draw(img)
