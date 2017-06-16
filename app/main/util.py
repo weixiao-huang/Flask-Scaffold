@@ -27,7 +27,13 @@ def add_name(fn, name, result_fn):
     #     img_size[0] * 0.32,
     #     img_size[1] * 0.40
     # )
+    qrcode_pos = (
+        int(img_size[0] * 0.7),
+        int(img_size[1] * 0.875)
+    )
 
+    qrcode_file = Image.open(os.path.join(app.config['IMG_DIR'], 'qrcode.png'))
+    img.paste(qrcode_file, qrcode_pos, qrcode_file)
     font = ImageFont.truetype(font_file, font_size)
     draw = ImageDraw.Draw(img)
     draw.text(begin_pos, name + ':', (84, 96, 113), font=font)
