@@ -47,6 +47,8 @@ def get_result_url_by_name_and_id(name, id, pId=None):
     # result_fn = '2.png'
     if pId is not None:
         selected_file = str(pId) + '.png'
+        print(time.strftime("%Y-%m-%d %X", time.localtime()), ': ', selected_file)
+        redis_store.incr('num:totals')
         return add_name(os.path.join(SENTENCES_DIR, selected_file), name, result_fn), selected_file.split('.png')[0]
     files = os.listdir(SENTENCES_DIR)
     selected_file = files[int(random() * len(files))]
