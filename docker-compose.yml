@@ -8,17 +8,17 @@ services:
      - ./img:/usr/src/app/img
     ports:
      - 5001:5001
-  web-dev:
-    build: .
-    volumes:
-     - .:/usr/src/app
-    command: python manage.py runserver --host=0.0.0.0 --port=5051
-    environment:
-     - PIP_INDEX_URL=https://pypi.tuna.tsinghua.edu.cn/simple
-     - FLASK_CONFIG=development
-    ports:
-      - 5051:5051
-    restart: always
+#  web-dev:
+#    build: .
+#    volumes:
+#     - .:/usr/src/app
+#    command: python manage.py runserver --host=0.0.0.0 --port=5051
+#    environment:
+#     - PIP_INDEX_URL=https://pypi.tuna.tsinghua.edu.cn/simple
+#     - FLASK_CONFIG=development
+#    ports:
+#      - 5051:5051
+#    restart: always
   redis:
     image: redis
     volumes:

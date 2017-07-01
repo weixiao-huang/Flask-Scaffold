@@ -96,4 +96,3 @@ db/*
 config_local.py
 
 static/results/**/*.*
-redis
