@@ -29,11 +29,11 @@ body::after {
 }
 
 .index__input {
-  text-align: center;
+  /*text-align: center;*/
   font-size: 3em;
   outline: none;
   /*height: 100%;*/
-  width: 54%;
+  width: 58%;
   background: transparent;
   border: none;
   /*border: 1px solid black;*/
@@ -53,8 +53,8 @@ body::after {
 .form {
   position: absolute;
   text-align: left;
-  left: 35%;
-  bottom: 14%;
+  left: 44%;
+  top: 39.7%;
 }
 
 
@@ -71,14 +71,6 @@ body::after {
 
 .result-img {
   width: 100%;
-}
-
-.result-press {
-  height: 12%;
-  margin-top: -2%;
-  background: url('/static/img/press.png') no-repeat center center;
-  -webkit-background-size: 100% auto;
-  background-size: 100% 100%;
 }
 
 /*input::-webkit-input-placeholder { !* WebKit browsers *!*/

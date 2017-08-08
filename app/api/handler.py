@@ -9,7 +9,7 @@ def index():
         name = request.form['name']
         if name is None or name == '':
             raise ValueError
-        result, bg = get_result_url_by_name(name)
-        return jsonify({'result': result, 'bg': bg})
+        result = get_result_url_by_name(name)
+        return jsonify({'result': result})
     except ValueError:
         return 'ValueError', 400

@@ -10,30 +10,10 @@ def index():
             name = request.form['name']
             if name is None or name == '':
                 raise ValueError
-            return redirect(url_for('main.shake', name=name))
+            result = get_result_url_by_name(name)
+            # return redirect(url_for('main.shake', name=name))
+            return render_template('result.html', result=result)
         else:
             return render_template('index.html')
     except ValueError:
         return render_template('empty.html')
-
-
-@main_blueprint.route('shake', methods=['GET', 'POST'])
-def shake():
-    try:
-        if request.method == 'GET':
-            name = request.args.get('name')
-            result, bg = get_result_url_by_name(name)
-            return render_template('shake.html', result=result, bg=bg)
-    except Exception as e:
-        print(e, flush=True)
-        return 'get_result_url_by_name is abort', 400
-
-
-@main_blueprint.route('result', methods=['GET'])
-def result():
-    try:
-        return render_template('result.html',
-                               result=request.args.get('result'),
-                               bg=request.args.get('bg'))
-    except Exception as e:
-        return e, 400
