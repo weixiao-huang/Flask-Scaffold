@@ -2,7 +2,7 @@
 
 {% block header %}
     <style>
-        img {
+        .container::after, .wrap {
             display: inline-block;
             vertical-align: middle;
         }
@@ -15,8 +15,12 @@
 
 
 {% block content %}
-    <img class="result-img" src="{{ result }}" alt="">
-    <div class="more">
-        <a href="http://d.eqxiu.com/s/3AwgwV15">查看更多</a>
+    <div class="wrap">
+        <div>
+            <img class="result-img" src="{{ result }}" alt="">
+        </div>
+        <div class="more">
+            <a href="http://d.eqxiu.com/s/3AwgwV15">查看更多</a>
+        </div>
     </div>
 {% endblock %}

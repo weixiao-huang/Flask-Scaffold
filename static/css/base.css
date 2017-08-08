@@ -82,11 +82,11 @@ a, a:visited, a:active {
 
 .more {
   display: inline-block;
-  margin-top: 40px;
+  margin-top: 1em;
   font-size: 3em;
 }
 
-.more a {
+ .more a {
   color: #567723;
   padding: 10px 60px;
   border-radius: 10px;
