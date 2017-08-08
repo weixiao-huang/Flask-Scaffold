@@ -9,7 +9,7 @@ manager = Manager(app)
 
 class GunicornApplication(Application):
     def init(self, parser, opts, args):
-        return dict(bind='0.0.0.0:5000', workers=4)
+        return dict(bind='0.0.0.0:6001', workers=4)
 
     def load(self):
         return app
