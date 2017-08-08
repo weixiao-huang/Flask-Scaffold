@@ -15,9 +15,6 @@ def add_name(fn, name, id, result_fn):
     imgSize = img.size
 
     nameLen = len(name.encode('gbk'))
-    print(name)
-
-    print(id)
     fontSize = int(imgSize[0] * 0.08)
     if nameLen > 8:
         fontSize = int(fontSize * (0.9 - 
@@ -85,4 +82,8 @@ def get_result_url_by_name(name):
     num = int(random() * len(img_files))
 
     select_fn = os.path.join(img_dir, img_files[num])
-    return add_name(select_fn, name, index, '1.png')
+    result_fn = str(uuid.uuid1()) + '.png'
+    print(time.strftime("%Y-%m-%d %X", time.localtime()), ': ', select_fn, ': ', name)
+    draw_num = int(redis_store.get('num:totals'))
+    redis_store.incr('num:totals')
+    return add_name(select_fn, name, index, result_fn)
