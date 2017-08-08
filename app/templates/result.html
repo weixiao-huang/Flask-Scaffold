@@ -1,5 +1,22 @@
 {% extends "base.html" %}
 
+{% block header %}
+    <style>
+        img {
+            display: inline-block;
+            vertical-align: middle;
+        }
+        .container::after {
+            content: '';
+            height: 100%;            
+        }
+    </style>
+{% endblock %}
+
+
 {% block content %}
     <img class="result-img" src="{{ result }}" alt="">
+    <div class="more">
+        <a href="http://d.eqxiu.com/s/3AwgwV15">查看更多</a>
+    </div>
 {% endblock %}

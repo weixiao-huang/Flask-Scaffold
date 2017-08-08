@@ -19,6 +19,11 @@ body::after {
     height: 100%;
 }
 
+a, a:visited, a:active {
+  text-decoration: none;
+}
+
+
 .container {
   height: 100%;
   width: 90%;
@@ -33,7 +38,7 @@ body::after {
   font-size: 3em;
   outline: none;
   /*height: 100%;*/
-  width: 80%;
+  width: 60%;
   background: transparent;
   border: none;
   /*border: 1px solid black;*/
@@ -53,7 +58,7 @@ body::after {
 .form {
   position: absolute;
   text-align: left;
-  left: 44%;
+  left: 43%;
   top: 38.8%;
 }
 
@@ -70,8 +75,24 @@ body::after {
 
 
 .result-img {
-  width: 100%;
+/*  width: 100%;*/
+  height: 80%;
 }
+
+
+.more {
+  display: inline-block;
+  margin-top: 40px;
+  font-size: 3em;
+}
+
+.more a {
+  color: #567723;
+  padding: 10px 60px;
+  border-radius: 10px;
+  border: 1px solid #567723;
+}
+
 
 /*input::-webkit-input-placeholder { !* WebKit browsers *!*/
   /*color: #d4d3d3;*/
