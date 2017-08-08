@@ -19,22 +19,39 @@ def add_name(fn, name, id, result_fn):
 
     print(id)
     fontSize = int(imgSize[0] * 0.08)
+
+    qrcode_file = os.path.join(app.config['IMG_DIR'], 'qrcode.png')
+    qrcode = Image.open(qrcode_file)
+    qSize = int(imgSize[0] * 0.18)
+    qrcode.thumbnail((qSize, qSize))
+
     if id == '1':
         beginPos = (
             imgSize[0] * 0.57,
             imgSize[1] * 0.31 - fontSize
+        )
+        qrcodeBeginPos = (
+            imgSize[0] * 0.67,
+            imgSize[1] * 0.944 - qSize
         )
     elif id == '2':
         beginPos = (
             imgSize[0] * 0.38,
             imgSize[1] * 0.311 - fontSize
         )
+        qrcodeBeginPos = (
+            imgSize[0] * 0.57,
+            imgSize[1] * 0.955 - qSize
+        )
     else:
         beginPos = (
             imgSize[0] * 0.43,
             imgSize[1] * 0.424 - fontSize
         )
-
+        qrcodeBeginPos = (
+            imgSize[0] * 0.456,
+            imgSize[1] * 0.88 - qSize
+        )
 
     FONT_FILE = os.path.join(app.config['RESOURCES_DIR'], 'font%s.ttf' % id)
     font = ImageFont.truetype(FONT_FILE, fontSize)
@@ -44,6 +61,8 @@ def add_name(fn, name, id, result_fn):
         color = (255, 244, 0)
     draw = ImageDraw.Draw(img)
     draw.text(beginPos, name, color, font=font)
+
+    img.paste(qrcode, (int(qrcodeBeginPos[0]), int(qrcodeBeginPos[1])), qrcode)
 
     img.save(os.path.join(app.config['STATIC_DIR'], 'results', result_fn))
     return os.path.join(RESULT_REL_DIR, 'results', result_fn)
