@@ -19,16 +19,23 @@ def add_name(fn, name, id, result_fn):
 
     print(id)
     fontSize = int(imgSize[0] * 0.08)
+    if nameLen > 8:
+        fontSize = int(fontSize * (0.9 - 
+            (nameLen - 8) * 0.042
+        ))
 
     qrcode_file = os.path.join(app.config['IMG_DIR'], 'qrcode.png')
     qrcode = Image.open(qrcode_file)
     qSize = int(imgSize[0] * 0.18)
     qrcode.thumbnail((qSize, qSize))
 
+    offset = fontSize
+    if nameLen > 16:
+        offset = offset + fontSize * 0.2
     if id == '1':
         beginPos = (
             imgSize[0] * 0.57,
-            imgSize[1] * 0.31 - fontSize
+            imgSize[1] * 0.31 - offset
         )
         qrcodeBeginPos = (
             imgSize[0] * 0.67,
@@ -37,7 +44,7 @@ def add_name(fn, name, id, result_fn):
     elif id == '2':
         beginPos = (
             imgSize[0] * 0.38,
-            imgSize[1] * 0.311 - fontSize
+            imgSize[1] * 0.311 - offset
         )
         qrcodeBeginPos = (
             imgSize[0] * 0.57,
@@ -46,7 +53,7 @@ def add_name(fn, name, id, result_fn):
     else:
         beginPos = (
             imgSize[0] * 0.43,
-            imgSize[1] * 0.424 - fontSize
+            imgSize[1] * 0.424 - offset
         )
         qrcodeBeginPos = (
             imgSize[0] * 0.456,
