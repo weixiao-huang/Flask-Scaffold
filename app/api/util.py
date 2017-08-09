@@ -16,7 +16,9 @@ def add_name(fn, name, id, result_fn):
 
     nameLen = len(name.encode('gbk'))
     fontSize = int(imgSize[0] * 0.08)
-    if nameLen > 8:
+    if nameLen <=8:
+        fontSize = int(fontSize * (1 + 0.1 * (8 - nameLen)))
+    elif nameLen > 8:
         fontSize = int(fontSize * (0.9 - 
             (nameLen - 8) * 0.042
         ))
