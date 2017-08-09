@@ -1,26 +1,22 @@
 {% extends "base.html" %}
 
 {% block header %}
-    <style>
-        .container::after, .wrap {
-            display: inline-block;
-            vertical-align: middle;
-        }
-        .container::after {
-            content: '';
-            height: 100%;            
-        }
-    </style>
+    <link rel="stylesheet" href="/static/css/result.css">
 {% endblock %}
 
 
 {% block content %}
     <div class="wrap">
         <div>
-            <img class="result-img" src="{{ result }}" alt="">
+            <img src="/static/img/result/title.png" alt="">
         </div>
-        <div class="more">
-            <a href="http://d.eqxiu.com/s/3AwgwV15">查看更多</a>
+        <div class="result-img">
+            <img src="{{ result }}" alt="">
+        </div>
+        <div>
+            <a href="http://d.eqxiu.com/s/3AwgwV15">
+                <img src="/static/img/result/button.png" alt="">
+            </a>
         </div>
     </div>
 {% endblock %}

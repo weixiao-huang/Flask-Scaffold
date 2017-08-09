@@ -1,31 +1,31 @@
 {% extends "base.html" %}
 
 {% block header %}
-    <style>
-        body {
-            background: #1eb1ed;
-        }
-        .container {
-            background: url("/static/img/first_bg.png") no-repeat center center;
-            -webkit-background-size: auto 100%;
-            background-size: auto 100%;
-        }
-    </style>
+    <link rel="stylesheet" href="/static/css/index.css">
 {% endblock %}
 
 {% block content %}
 {#    <img class="index__cover" src="/static/img/index.png" alt="">#}
-    <form class="form" id="form" action="/" method="post">
-        <input
-            id="input"
-            name="name"
-            class="index__input"
-            type="text"
-            maxlength="10"
-            placeholder="输入你的姓名"
-        >
-    </form>
+    <div class="wrap">
+        <form class="form" id="form" action="/" method="post">
+            <input
+                id="input"
+                name="name"
+                type="text"
+                maxlength="10"
+                placeholder="输入你的姓名"
+            >
+        </form>
+        <div class="submit" onclick="submitForm()">
+            <div>点击领取</div>
+            <div>专属开学上上签</div>
+        </div>
+    </div>
     <script>
+        function submitForm() {
+            var form = document.getElementById('form')
+            form.submit()
+        }
         function next(event) {
             var form = document.getElementById('form')
             var inputValue = document.getElementById('input').value
