@@ -20,9 +20,9 @@ body {
 
 #input {
   text-align: center;
-  width: 46%;
-  outline: none;
+  width: 50%;
   border: none;
+  outline: none;
   background: transparent;
   color: white;
   border-bottom: 15px solid white;
