@@ -21,7 +21,7 @@ def add_name(fn, name, result_fn):
 
     begin_pos = (
         img_size[0] * 0.295,
-        img_size[1] * 0.3
+        img_size[1] * 0.4
     )
     # begin_pos = (
     #     img_size[0] * 0.32,
