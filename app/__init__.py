@@ -18,6 +18,8 @@ def create_app(name):
     redis_store.init_app(app)
 
     main = importlib.import_module('app.main')
-    app.register_blueprint(main.main_blueprint)
+    api = importlib.import_module('app.api')
+    app.register_blueprint(main.main_blueprint, url_prefix='/')
+    app.register_blueprint(api.api_blueprint, url_prefix='/api/v1')
 
     return app
