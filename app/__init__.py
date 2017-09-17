@@ -19,7 +19,6 @@ def create_app(name):
 
     main = importlib.import_module('app.main')
     api = importlib.import_module('app.api')
-    # app.register_blueprint(main.main_blueprint)
     app.register_blueprint(main.main_blueprint)
     app.register_blueprint(api.api_blueprint, url_prefix='/api/v1')
 

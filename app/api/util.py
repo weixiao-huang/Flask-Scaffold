@@ -21,8 +21,7 @@ def add_name(fn, name, result_fn, pId):
 
     nameLen = len(name.encode('gbk'))
 
-    font_dir = os.path.join(app.config['RESOURCES_DIR'], 'mn')
-    fn = os.path.join(app.config['RESOURCES_DIR'], 'FZZY.ttf')
+    fn = os.path.join(app.config['RESOURCES_DIR'], 'FZZY.TTF')
 
     fontSize = int(imgSize[0] * 0.079)
 
