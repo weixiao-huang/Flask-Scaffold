@@ -22,8 +22,10 @@ def add_name(fn, name, result_fn, pId):
     nameLen = len(name.encode('gbk'))
 
     fn = os.path.join(app.config['RESOURCES_DIR'], 'FZZY.TTF')
+    tip_fn = os.path.join(app.config['RESOURCES_DIR'], 'PingFang Light.ttf')
 
     fontSize = int(imgSize[0] * 0.079)
+    tipFontSize = int(imgSize[0] * 0.04)
 
     if pId == '1':
         begin_pos = (
@@ -59,9 +61,28 @@ def add_name(fn, name, result_fn, pId):
             )
 
     font = ImageFont.truetype(fn, fontSize)
+    tip_font = ImageFont.truetype(tip_fn, tipFontSize)
+
+    tip = '长按扫码'
+    tipLen = len(tip.encode('gbk'))
+    qrcode_size = int(imgSize[0] * 0.2)
+    tip_pos = (
+        int(imgSize[0] * 0.75),
+        int(imgSize[1] * 0.95)
+    )
+    qrcode_pos = (
+        tip_pos[0] - qrcode_size // 2 + int(tipLen * tipFontSize / 4),
+        tip_pos[1] - qrcode_size
+    )
+
+    qrcode_file = Image.open(
+            os.path.join(app.config['IMG_DIR'], 'sports', 'qrcode.png')
+        ).resize((qrcode_size, qrcode_size), Image.ANTIALIAS)
+    img.paste(qrcode_file, qrcode_pos, qrcode_file)
 
     draw = ImageDraw.Draw(img)
     draw.text((begin_pos[0], begin_pos[1]), name, (0, 0, 0), font=font)
+    draw.text(tip_pos, tip, (114, 114, 114), font=tip_font)
     img.save(os.path.join(app.config['STATIC_DIR'], 'results', result_fn))
 
     return os.path.join(RESULT_REL_DIR, 'results', result_fn), img.convert('RGB').getpixel((10, 10))
@@ -72,8 +93,7 @@ def get_result_url_by_name(name):
     result_fn = str(uuid.uuid1()) + '.png'
 
     # pId = str(int(random() * 4) + 1)
-    # dir_path = os.path.join(SENTENCES_DIR, pId)
-    dir_path = SENTENCES_DIR
+    dir_path = os.path.join(SENTENCES_DIR, 'sentences')
     files = os.listdir(dir_path)
     index = int(random() * len(files))
     selected_file = files[index]
