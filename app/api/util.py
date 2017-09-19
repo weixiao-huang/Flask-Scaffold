@@ -58,10 +58,8 @@ def add_name(fn, name, result_fn, pId):
 def get_result_url_by_name(name):
     SENTENCES_DIR = os.path.join(app.config['IMG_DIR'], 'sports')
     result_fn = str(uuid.uuid1()) + '.png'
-    result_fn = '1.png'
 
     pId = str(int(random() * 4) + 1)
-    pId = '4'
     dir_path = os.path.join(SENTENCES_DIR, pId)
     files = os.listdir(dir_path)
     selected_file = files[int(random() * len(files))]
