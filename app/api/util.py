@@ -45,6 +45,18 @@ def add_name(fn, name, result_fn, pId):
             imgSize[0] * 0.555,
             imgSize[1] * 0.28,
         )
+    elif pId == '5':
+        if nameLen > 8:
+            fontSize = int(fontSize * 0.8)
+            begin_pos = (
+                get_pos_by_baseline(fontSize, imgSize[0] * 0.49, nameLen),
+                imgSize[1] * 0.2,
+            )
+        else:
+            begin_pos = (
+                get_pos_by_baseline(fontSize, imgSize[0] * 0.50, nameLen),
+                imgSize[1] * 0.192,
+            )
 
     font = ImageFont.truetype(fn, fontSize)
 
@@ -59,10 +71,13 @@ def get_result_url_by_name(name):
     SENTENCES_DIR = os.path.join(app.config['IMG_DIR'], 'sports')
     result_fn = str(uuid.uuid1()) + '.png'
 
-    pId = str(int(random() * 4) + 1)
-    dir_path = os.path.join(SENTENCES_DIR, pId)
+    # pId = str(int(random() * 4) + 1)
+    # dir_path = os.path.join(SENTENCES_DIR, pId)
+    dir_path = SENTENCES_DIR
     files = os.listdir(dir_path)
-    selected_file = files[int(random() * len(files))]
+    index = int(random() * len(files))
+    selected_file = files[index]
+    pId = selected_file.split('-')[0]
     print(time.strftime("%Y-%m-%d %X", time.localtime()), ': ', selected_file)
 
     return add_name(os.path.join(dir_path, selected_file), name, result_fn, pId)
