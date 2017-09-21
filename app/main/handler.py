@@ -1,7 +1,7 @@
-from flask import render_template, request
+from flask import render_template, request, jsonify
 from app.main import main_blueprint
 from .util import get_result_url_by_name_and_id
-
+from app.api.util import get_result_url_by_name
 
 @main_blueprint.route('/')
 def index():
@@ -9,9 +9,21 @@ def index():
                            imgs=[1, 2, 3, 4, 5, 6])
 
 
-@main_blueprint.route('/sports')
+@main_blueprint.route('/sports', methods=['GET', 'POST'])
 def sports():
-    return render_template('sports.html')
+    if request.method == 'GET':
+        return render_template('sports.html')
+    else:
+        name = request.form.get('name')
+        try:
+            name = request.form.get('name')
+            if name is None or name == '':
+                raise ValueError
+            result, bgRGB = get_result_url_by_name(name)
+
+            return render_template('sports_result.html', bg=bgRGB, image_src=result)
+        except ValueError:
+            return 'ValueError', 400
 
 
 @main_blueprint.route('/draw', methods=['GET', 'POST'])

@@ -12,22 +12,50 @@
   <div class="halfContainer"></div>
   <div class="halfContainer">
     <div class="upperContainer">
-      <div class="contentContainer">
+      <form id="sports_form" action="/sports" method="post" class="contentContainer">
         <div class="inputContainer"> 
           <span class="input_padding input_left">》</span>
-            <input class="input" placeholder="输入姓名"/>
+            <input name="name" id="input" class="input" placeholder="输入姓名"/>
           <span class="input_padding input_right">《</span>
         </div>
-        <div class="first_span_container" >
-            <img src="/static/img/sports/images/first_text.png" class="first_span"/>
+        <div onclick="next()" class="first_text_container" >
+            <img src="/static/img/sports/images/first_text.png" class="first_text"/>
         </div>
-      </div>
-      <div class="second_span_container">
-        <img class="second_span" src="/static/img/sports/images/second_text.png"/>
+      </form>
+      <div class="second_text_container">
+        <img class="second_text" src="/static/img/sports/images/second_text.png"/>
       </div>
     </div>
   </div>
 </div>
 </body>
 
+<script>
+  function lengthOf(s) {
+    let l = 0;
+    for (let i=0; i<s.length; i++) {
+      if(s.charCodeAt(i) > 255) l+=2;
+      else l++;
+    }
+    return l;
+  }
+
+  function next() {
+    const name = document.getElementById('input').value;
+    const l = this.lengthOf(name);
+    if (l > 10) console.log('xiaoyu 10');
+    else if (l == 0) console.log('0');
+    else {
+      //if(!this.data.enabled_click) return;
+      //this.setData({
+      //  enabled_click: false
+      //});
+      //wx.showLoading({
+      //  title: '加载中',
+      //});
+      console.log('submit');
+      document.getElementById('sports_form').submit();
+    }
+  }
+</script>
 </html>

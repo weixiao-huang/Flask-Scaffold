@@ -1,0 +1,17 @@
+.result_background {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.result_image {
+  height: 80%;
+}
+
+.save_button {
+  border-radius: 10rpx;
+  font-size: 25rpx;
+}
