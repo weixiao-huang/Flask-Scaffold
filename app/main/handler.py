@@ -9,6 +9,11 @@ def index():
                            imgs=[1, 2, 3, 4, 5, 6])
 
 
+@main_blueprint.route('/sports')
+def sports():
+    return render_template('sports.html')
+
+
 @main_blueprint.route('/draw', methods=['GET', 'POST'])
 def draw():
     if request.method == 'GET':
