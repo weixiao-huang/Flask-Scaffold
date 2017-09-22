@@ -12,10 +12,11 @@
   <div class="halfContainer"></div>
   <div class="halfContainer">
     <div class="upperContainer">
-      <form id="sports_form" action="/sports" method="post" class="contentContainer">
+      <form id="sports_form" action="/sports" method="post" onsubmit="return next()" class="contentContainer">
+        <input type='hidden' name='mypretime' value='0'>
         <div class="inputContainer"> 
           <span class="input_padding input_left">》</span>
-            <input name="name" id="input" class="input" placeholder="输入姓名"/>
+            <input name="name" id="input" type="text" class="input" placeholder="输入姓名"/>
           <span class="input_padding input_right">《</span>
         </div>
         <div onclick="next()" class="first_text_container" >
@@ -41,20 +42,39 @@
   }
 
   function next() {
+
+	Today = new Date();
+
+	const NowHour = Today.getHours();
+	const NowMinute = Today.getMinutes();
+	const NowSecond = Today.getSeconds();
+	const mysec = (NowHour*3600)+(NowMinute*60)+NowSecond;
+	if ((mysec - document.getElementById('sports_form').mypretime.value) < 5) {
+	  return false;
+	}
+
+    document.getElementById('sports_form').mypretime.value=mysec;
+
     const name = document.getElementById('input').value;
     const l = this.lengthOf(name);
-    if (l > 10) console.log('xiaoyu 10');
-    else if (l == 0) console.log('0');
+    if (l > 10) {
+      // showToast(error.png, 长度需小于10字符哟);
+      return false;
+    }
+    else if (l == 0) {
+      // showToast(error.png, 名字不能为空);
+      return false;
+    }
     else {
-      //if(!this.data.enabled_click) return;
-      //this.setData({
-      //  enabled_click: false
-      //});
+
       //wx.showLoading({
       //  title: '加载中',
       //});
-      console.log('submit');
+
       document.getElementById('sports_form').submit();
+
+      // wx.hideLoading();
+      return true;
     }
   }
 </script>

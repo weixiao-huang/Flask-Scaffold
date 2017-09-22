@@ -9,9 +9,6 @@
 
 .result_image {
   height: 80%;
+  -webkit-touch-callout: default
 }
 
-.save_button {
-  border-radius: 10rpx;
-  font-size: 25rpx;
-}
