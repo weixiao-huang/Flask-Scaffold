@@ -83,6 +83,7 @@ def add_name(fn, name, result_fn, pId):
     draw = ImageDraw.Draw(img)
     draw.text((begin_pos[0], begin_pos[1]), name, (0, 0, 0), font=font)
     draw.text(tip_pos, tip, (114, 114, 114), font=tip_font)
+    img = img.crop((10, 10, imgSize[0] - 10, imgSize[1] - 10))
     img.save(os.path.join(app.config['STATIC_DIR'], 'results', result_fn))
 
     return os.path.join(RESULT_REL_DIR, 'results', result_fn), img.convert('RGB').getpixel((10, 10))
